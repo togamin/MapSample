@@ -7,13 +7,30 @@
 //
 
 import UIKit
+import MapKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDelegate {
 
+    @IBOutlet weak var startTextField: UITextField!
+    @IBOutlet weak var stopTextField: UITextField!
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let locationManager = CLLocationManager()
+        locationManager.delegate = self
+        mapView.delegate = self
+        
     }
+    
+    
+    
+    @IBAction func searchBtn(_ sender: UIButton) {
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
